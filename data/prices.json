@@ -1,0 +1,997 @@
+[
+  {
+    "date": "2026-01-01",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.35,
+      "gasohol_91": 30.98,
+      "gasohol_e20": 29.14,
+      "gasohol_e85": 27.09,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-01-02",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.35,
+      "gasohol_91": 30.98,
+      "gasohol_e20": 29.14,
+      "gasohol_e85": 27.09,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-01-03",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.35,
+      "gasohol_91": 30.98,
+      "gasohol_e20": 29.14,
+      "gasohol_e85": 27.09,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-01-04",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.35,
+      "gasohol_91": 30.98,
+      "gasohol_e20": 29.14,
+      "gasohol_e85": 27.09,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-01-05",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.35,
+      "gasohol_91": 30.98,
+      "gasohol_e20": 29.14,
+      "gasohol_e85": 27.09,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-01-06",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.35,
+      "gasohol_91": 30.98,
+      "gasohol_e20": 29.14,
+      "gasohol_e85": 27.09,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-01-07",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.35,
+      "gasohol_91": 30.98,
+      "gasohol_e20": 29.14,
+      "gasohol_e85": 27.09,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-01-08",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.35,
+      "gasohol_91": 30.98,
+      "gasohol_e20": 29.14,
+      "gasohol_e85": 27.09,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-01-09",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-10",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-11",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-12",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-13",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-14",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-15",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-16",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-17",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-18",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-19",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-20",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-21",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-22",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-23",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-24",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-25",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-26",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-27",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-28",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-29",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-30",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-01-31",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-01",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-02",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-03",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-04",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-05",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-06",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-07",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-08",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-09",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-10",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-11",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-12",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-13",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-14",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-15",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-16",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-17",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.85,
+      "gasohol_91": 30.48,
+      "gasohol_e20": 28.64,
+      "gasohol_e85": 26.59,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-18",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-19",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-20",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-21",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-23",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-24",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-25",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-26",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-27",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-02-28",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-01",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-02",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-03",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-04",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-05",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-06",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-07",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-08",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-09",
+    "prices": {
+      "gasoline_95": 39.14,
+      "gasohol_95": 30.55,
+      "gasohol_91": 30.18,
+      "gasohol_e20": 28.34,
+      "gasohol_e85": 26.29,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-10",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.05,
+      "gasohol_91": 30.68,
+      "gasohol_e20": 27.84,
+      "gasohol_e85": 25.79,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-11",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.05,
+      "gasohol_91": 30.68,
+      "gasohol_e20": 27.84,
+      "gasohol_e85": 25.79,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-12",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.05,
+      "gasohol_91": 30.68,
+      "gasohol_e20": 27.84,
+      "gasohol_e85": 25.79,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-13",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.05,
+      "gasohol_91": 30.68,
+      "gasohol_e20": 27.84,
+      "gasohol_e85": 25.79,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-14",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.05,
+      "gasohol_91": 30.68,
+      "gasohol_e20": 27.84,
+      "gasohol_e85": 25.79,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-15",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.05,
+      "gasohol_91": 30.68,
+      "gasohol_e20": 27.84,
+      "gasohol_e85": 25.79,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.05,
+      "gasohol_91": 30.68,
+      "gasohol_e20": 27.84,
+      "gasohol_e85": 25.79,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-17",
+    "prices": {
+      "gasoline_95": 39.64,
+      "gasohol_95": 31.05,
+      "gasohol_91": 30.68,
+      "gasohol_e20": 27.84,
+      "gasohol_e85": 25.79,
+      "diesel": 29.94
+    }
+  },
+  {
+    "date": "2026-03-18",
+    "prices": {
+      "gasoline_95": 40.64,
+      "gasohol_95": 32.05,
+      "gasohol_91": 31.68,
+      "gasohol_e20": 27.05,
+      "gasohol_e85": 23.79,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-03-19",
+    "prices": {
+      "gasoline_95": 40.64,
+      "gasohol_95": 32.05,
+      "gasohol_91": 31.68,
+      "gasohol_e20": 27.05,
+      "gasohol_e85": 23.79,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-03-20",
+    "prices": {
+      "gasoline_95": 40.64,
+      "gasohol_95": 32.05,
+      "gasohol_91": 31.68,
+      "gasohol_e20": 27.05,
+      "gasohol_e85": 23.79,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-03-21",
+    "prices": {
+      "gasoline_95": 40.64,
+      "gasohol_95": 32.05,
+      "gasohol_91": 31.68,
+      "gasohol_e20": 27.05,
+      "gasohol_e85": 23.79,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-03-22",
+    "prices": {
+      "gasoline_95": 40.64,
+      "gasohol_95": 32.05,
+      "gasohol_91": 31.68,
+      "gasohol_e20": 27.05,
+      "gasohol_e85": 23.79,
+      "diesel": 30.44
+    }
+  },
+  {
+    "date": "2026-03-23",
+    "prices": {
+      "gasoline_95": 41.64,
+      "gasohol_95": 33.05,
+      "gasohol_91": 32.68,
+      "gasohol_e20": 28.05,
+      "gasohol_e85": 24.79,
+      "diesel": 31.14
+    }
+  },
+  {
+    "date": "2026-03-24",
+    "prices": {
+      "gasoline_95": 43.64,
+      "gasohol_95": 35.05,
+      "gasohol_91": 34.68,
+      "gasohol_e20": 30.05,
+      "gasohol_e85": 26.79,
+      "diesel": 32.94
+    }
+  },
+  {
+    "date": "2026-03-25",
+    "prices": {
+      "gasoline_95": 43.64,
+      "gasohol_95": 35.05,
+      "gasohol_91": 34.68,
+      "gasohol_e20": 30.05,
+      "gasohol_e85": 26.79,
+      "diesel": 32.94
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "prices": {
+      "gasoline_95": 49.64,
+      "gasohol_95": 41.05,
+      "gasohol_91": 40.68,
+      "gasohol_e20": 36.05,
+      "gasohol_e85": 32.79,
+      "diesel": 38.94
+    }
+  },
+  {
+    "date": "2026-03-27",
+    "prices": {
+      "gasoline_95": 49.64,
+      "gasohol_95": 41.05,
+      "gasohol_91": 40.68,
+      "gasohol_e20": 36.05,
+      "gasohol_e85": 32.79,
+      "diesel": 38.94,
+      "diesel_b20": 33.94
+    }
+  },
+  {
+    "date": "2026-03-28",
+    "prices": {
+      "gasoline_95": 49.64,
+      "gasohol_95": 41.05,
+      "gasohol_91": 40.68,
+      "gasohol_e20": 36.05,
+      "gasohol_e85": 32.79,
+      "diesel": 38.94,
+      "diesel_b20": 33.94
+    }
+  },
+  {
+    "date": "2026-03-29",
+    "prices": {
+      "gasoline_95": 49.64,
+      "gasohol_95": 41.05,
+      "gasohol_91": 40.68,
+      "gasohol_e20": 36.05,
+      "gasohol_e85": 32.79,
+      "diesel": 38.94,
+      "diesel_b20": 33.94
+    }
+  },
+  {
+    "date": "2026-03-30",
+    "prices": {
+      "gasoline_95": 49.64,
+      "gasohol_95": 41.05,
+      "gasohol_91": 40.68,
+      "gasohol_e20": 36.05,
+      "gasohol_e85": 32.79,
+      "diesel": 38.94,
+      "diesel_b20": 33.94
+    }
+  },
+  {
+    "date": "2026-03-31",
+    "prices": {
+      "gasoline_95": 50.64,
+      "gasohol_95": 42.05,
+      "gasohol_91": 41.68,
+      "gasohol_e20": 37.05,
+      "gasohol_e85": 33.79,
+      "diesel": 40.74,
+      "diesel_b20": 35.74
+    }
+  }
+]
