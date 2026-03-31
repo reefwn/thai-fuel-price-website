@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', 'Noto Sans Thai', sans-serif;
   background: #EEF2FF;
   color: #1E1B4B;
   min-height: 100vh;
@@ -122,6 +122,34 @@ body {
   font-weight: 500;
 }
 
+/* ── Language toggle ── */
+.lang-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-family: 'Fira Sans', 'Noto Sans Thai', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  z-index: 1;
+}
+
+.lang-toggle:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.6);
+}
+
+.lang-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 /* ── Form Fields ── */
 .field {
   margin-bottom: 1.1rem;
@@ -153,7 +181,7 @@ body {
   border-radius: 16px;
   color: #1E1B4B;
   font-size: 0.95rem;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', 'Noto Sans Thai', sans-serif;
   font-weight: 600;
   appearance: none;
   cursor: pointer;
@@ -443,7 +471,7 @@ body {
   border: 2px solid #c7d2fe;
   background: #EEF2FF;
   color: #4F46E5;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', 'Noto Sans Thai', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
@@ -505,7 +533,7 @@ body {
   border: 2px solid #c7d2fe;
   background: #EEF2FF;
   color: #4F46E5;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', 'Noto Sans Thai', sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
   cursor: pointer;
@@ -571,7 +599,7 @@ body {
   border: none;
   background: #EEF2FF;
   color: #4F46E5;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', 'Noto Sans Thai', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;

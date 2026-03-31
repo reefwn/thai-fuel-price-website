@@ -1,4 +1,5 @@
 import { signal, type Signal } from '@preact/signals'
+import { locale } from './i18n'
 
 export type Point = { date: string; price: number }
 
@@ -40,8 +41,9 @@ function yTicks(minP: number, maxP: number, count = 4): number[] {
 }
 
 function monthLabel(date: string): string {
+  const loc = locale.value === 'th' ? 'th-TH' : 'en-US'
   const d = new Date(date)
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+  return d.toLocaleDateString(loc, { month: 'short', day: 'numeric' })
 }
 
 function ptToXY(idx: number, price: number, total: number, yMin: number, yMax: number) {

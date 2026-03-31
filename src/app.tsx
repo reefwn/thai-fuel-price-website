@@ -1,16 +1,18 @@
 import { signal, computed } from '@preact/signals'
 import priceData from '../data/prices.json'
 import { PriceChart } from './PriceChart'
+import { t, locale, toggleLocale } from './i18n'
 import './app.css'
 
-const FUEL_TYPES: Record<string, string> = {
-  gasoline_95: 'Gasoline 95',
-  gasohol_95: 'Gasohol 95',
-  gasohol_91: 'Gasohol 91',
-  gasohol_e20: 'Gasohol E20',
-  gasohol_e85: 'Gasohol E85',
-  diesel: 'Diesel',
-  diesel_b20: 'Diesel B20',
+const FUEL_KEYS = ['gasoline_95', 'gasohol_95', 'gasohol_91', 'gasohol_e20', 'gasohol_e85', 'diesel', 'diesel_b20'] as const
+const FUEL_I18N: Record<string, keyof typeof import('./i18n').t.value> = {
+  gasoline_95: 'gasoline95',
+  gasohol_95: 'gasohol95',
+  gasohol_91: 'gasohol91',
+  gasohol_e20: 'gasoholE20',
+  gasohol_e85: 'gasoholE85',
+  diesel: 'diesel',
+  diesel_b20: 'dieselB20',
 }
 
 type PriceEntry = { date: string; prices: Record<string, number> }
@@ -61,10 +63,10 @@ const CAR_DATA: Brand[] = [
 ]
 
 const FILL_OPTIONS = [
-  { label: 'Full', factor: 1 },
-  { label: '¾', factor: 0.75 },
-  { label: '½', factor: 0.5 },
-  { label: '¼', factor: 0.25 },
+  { labelKey: 'full' as const, factor: 1 },
+  { labelKey: null, label: '¾', factor: 0.75 },
+  { labelKey: null, label: '½', factor: 0.5 },
+  { labelKey: null, label: '¼', factor: 0.25 },
 ]
 
 const selectedBrand = signal('')
@@ -99,11 +101,11 @@ function onFillChange(factor: number) {
   if (model) litres.value = Math.round(model.tank * factor)
 }
 
-const RANGES: { days?: number; label: string; dateA?: string }[] = [
-  { label: 'Pre US-Iran war', dateA: '2026-02-28' },
-  { days: 7, label: '7D' },
-  { days: 14, label: '14D' },
-  { days: 30, label: '30D' },
+const RANGES: { days?: number; labelKey?: string; label?: string; dateA?: string }[] = [
+  { labelKey: 'preWar', dateA: '2026-02-28' },
+  { label: '7D', days: 7 },
+  { label: '14D', days: 14 },
+  { label: '30D', days: 30 },
 ]
 
 function findPrice(targetDate: string, fuel: string): { date: string; price: number } | null {
@@ -122,7 +124,8 @@ function getDateNDaysAgo(from: string, n: number): string {
 }
 
 function shortDate(d: string): string {
-  return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+  const loc = locale.value === 'th' ? 'th-TH' : 'en-US'
+  return new Date(d).toLocaleDateString(loc, { month: 'short', day: 'numeric' })
 }
 
 const latestDate = data[data.length - 1].date
@@ -144,11 +147,6 @@ const chartPoints = computed(() =>
     .filter(e => e.date >= threeMonthsAgo && e.prices[fuelType.value] != null)
     .map(e => ({ date: e.date, price: e.prices[fuelType.value] }))
 )
-
-function resetDates() {
-  selectedDateA.value = '2026-02-28'
-  selectedDateB.value = latestDate
-}
 
 function setRange(r: typeof RANGES[number]) {
   selectedDateA.value = r.dateA ?? getDateNDaysAgo(latestDate, r.days!)
@@ -185,8 +183,11 @@ export function App() {
     <div class="shell">
       {/* Header — full width */}
       <div class="clay-card header-card">
-        <h1>Thai Fuel Price</h1>
-        <p class="subtitle">How much more are you paying since the war?</p>
+        <button class="lang-toggle" onClick={toggleLocale} aria-label="Switch language">
+          {locale.value === 'en' ? 'TH' : 'EN'}
+        </button>
+        <h1>{t.value.title}</h1>
+        <p class="subtitle">{t.value.subtitle}</p>
       </div>
 
       <div class="columns">
@@ -194,15 +195,15 @@ export function App() {
         <div class="col-chart">
           {/* Fuel type card */}
           <div class="clay-card range-card">
-            <span class="field-label" style="margin-bottom:0">Fuel type</span>
-            <div class="fuel-pills" style="margin-bottom:0" role="group" aria-label="Select fuel type">
-              {Object.entries(FUEL_TYPES).map(([key, label]) => (
+            <span class="field-label" style="margin-bottom:0">{t.value.fuelType}</span>
+            <div class="fuel-pills" style="margin-bottom:0" role="group" aria-label={t.value.fuelType}>
+              {FUEL_KEYS.map(key => (
                 <button
                   key={key}
                   class={`fuel-pill${fuelType.value === key ? ' fuel-pill--active' : ''}`}
                   onClick={() => { fuelType.value = key }}
                   aria-pressed={fuelType.value === key}
-                >{label}</button>
+                >{t.value[FUEL_I18N[key]]}</button>
               ))}
             </div>
           </div>
@@ -210,7 +211,7 @@ export function App() {
           {chartPoints.value.length > 1 && (
             <div class="clay-card chart-card">
               <div class="chart-header">
-                <span class="field-label" style="margin-bottom:0">Price trend</span>
+                <span class="field-label" style="margin-bottom:0">{t.value.priceTrend}</span>
                 <span class="chart-range">{chartPoints.value[0].date} → {latestDate}</span>
               </div>
               <PriceChart points={chartPoints.value} dateA={selectedDateA} dateB={selectedDateB} />
@@ -218,7 +219,7 @@ export function App() {
                 {waitingForB ? (
                   <span class="chart-hint chart-hint--picking">
                     <span class="chart-hint-dot" style="background:#F97316" />
-                    A = {shortDate(selectedDateA.value)} — now click date B
+                    A = {shortDate(selectedDateA.value)} — {t.value.nowClickB}
                   </span>
                 ) : hasBoth ? (
                   <span class="chart-hint">
@@ -229,7 +230,7 @@ export function App() {
                     {shortDate(b!.date)}
                   </span>
                 ) : (
-                  <span class="chart-hint">Click chart to select date A</span>
+                  <span class="chart-hint">{t.value.clickDateA}</span>
                 )}
               </div>
             </div>
@@ -237,15 +238,15 @@ export function App() {
 
           {/* Compare range card */}
           <div class="clay-card range-card">
-            <span class="field-label" style="margin-bottom:0">Compare range</span>
-            <div class="range-pills" role="group" aria-label="Select comparison range">
+            <span class="field-label" style="margin-bottom:0">{t.value.compareRange}</span>
+            <div class="range-pills" role="group" aria-label={t.value.compareRange}>
               {RANGES.map((r, i) => (
                 <button
-                  key={r.label}
+                  key={r.labelKey ?? r.label}
                   class={`range-pill${activeRange === i ? ' range-pill--active' : ''}`}
                   onClick={() => setRange(r)}
                   aria-pressed={activeRange === i}
-                >{r.label}</button>
+                >{r.labelKey ? t.value[r.labelKey as keyof typeof t.value] : r.label}</button>
               ))}
             </div>
           </div>
@@ -253,19 +254,19 @@ export function App() {
 
         {/* ── Right column: Litres + Comparison + Result ── */}
         <div class="col-details">
-          {/* Litres card — toggle between car estimate and custom */}
+          {/* Litres card */}
           <div class="clay-card car-card">
             <div class="mode-toggle" role="group" aria-label="Choose litres input mode">
               <button
                 class={`mode-btn${litreMode.value === 'car' ? ' mode-btn--active' : ''}`}
                 onClick={() => { litreMode.value = 'car' }}
                 aria-pressed={litreMode.value === 'car'}
-              >By car model</button>
+              >{t.value.byCarModel}</button>
               <button
                 class={`mode-btn${litreMode.value === 'custom' ? ' mode-btn--active' : ''}`}
                 onClick={() => { litreMode.value = 'custom' }}
                 aria-pressed={litreMode.value === 'custom'}
-              >Custom</button>
+              >{t.value.custom}</button>
             </div>
 
             {litreMode.value === 'car' ? (
@@ -294,15 +295,15 @@ export function App() {
                 )}
                 {selectedModel.value && (
                   <div class="fill-row">
-                    <span class="fill-label">Fill level</span>
-                    <div class="range-pills" role="group" aria-label="Select fill level">
+                    <span class="fill-label">{t.value.fillLevel}</span>
+                    <div class="range-pills" role="group" aria-label={t.value.fillLevel}>
                       {FILL_OPTIONS.map(f => (
                         <button
-                          key={f.label}
+                          key={f.labelKey ?? f.label}
                           class={`range-pill${fillFactor.value === f.factor ? ' range-pill--active' : ''}`}
                           onClick={() => onFillChange(f.factor)}
                           aria-pressed={fillFactor.value === f.factor}
-                        >{f.label}</button>
+                        >{f.labelKey ? t.value[f.labelKey] : f.label}</button>
                       ))}
                     </div>
                   </div>
@@ -315,7 +316,7 @@ export function App() {
               </>
             ) : (
               <div class="field" style="margin-top:0.25rem">
-                <label class="field-label" for="litres-input">Litres to fill</label>
+                <label class="field-label" for="litres-input">{t.value.litresToFill}</label>
                 <input
                   id="litres-input"
                   class="clay-input"
@@ -336,22 +337,22 @@ export function App() {
               <div class="comparison">
                 <div class="clay-card price-card price-card--a">
                   <div class="price-card-label">
-                    <span class="pin-dot" style="background:#F97316" /> Date A
+                    <span class="pin-dot" style="background:#F97316" /> {t.value.dateA}
                   </div>
                   <div class="price-card-date">{shortDate(a!.date)}</div>
                   <div class="price-big">{a!.price.toFixed(2)}</div>
-                  <div class="price-unit">THB / litre</div>
+                  <div class="price-unit">{t.value.perLitre}</div>
                   <div class="price-divider" />
                   <div class="price-total">{(litres.value * a!.price).toFixed(2)} THB</div>
                   <div class="price-calc">{litres.value}L × {a!.price.toFixed(2)}</div>
                 </div>
                 <div class="clay-card price-card price-card--b">
                   <div class="price-card-label">
-                    <span class="pin-dot" style="background:#10b981" /> Date B
+                    <span class="pin-dot" style="background:#10b981" /> {t.value.dateB}
                   </div>
                   <div class="price-card-date">{shortDate(b!.date)}</div>
                   <div class="price-big">{b!.price.toFixed(2)}</div>
-                  <div class="price-unit">THB / litre</div>
+                  <div class="price-unit">{t.value.perLitre}</div>
                   <div class="price-divider" />
                   <div class="price-total">{(litres.value * b!.price).toFixed(2)} THB</div>
                   <div class="price-calc">{litres.value}L × {b!.price.toFixed(2)}</div>
@@ -364,17 +365,17 @@ export function App() {
                 </div>
                 <div class="result-content">
                   <div class="result-label">
-                    {d < 0 ? 'Cheaper at B' : d > 0 ? 'More expensive at B' : 'No change'}
+                    {d < 0 ? t.value.cheaperAtB : d > 0 ? t.value.moreExpensiveAtB : t.value.noChange}
                   </div>
                   <div class="result-amount">
-                    {d === 0 ? 'Same price' : `${Math.abs(d).toFixed(2)} THB`}
+                    {d === 0 ? t.value.samePrice : `${Math.abs(d).toFixed(2)} THB`}
                   </div>
                 </div>
               </div>
             </>
           ) : !waitingForB ? (
             <div class="clay-card">
-              <p class="no-data">Select two dates on the chart to compare prices.</p>
+              <p class="no-data">{t.value.selectTwoDates}</p>
             </div>
           ) : null}
         </div>
