@@ -29,9 +29,9 @@ const CAR_DATA: Brand[] = [
   {
     brand: 'Toyota',
     models: [
-      { name: 'Yaris Ativ', tank: 42 },
-      { name: 'Corolla Cross', tank: 47 },
-      { name: 'Hilux', tank: 80 },
+      { name: 'Yaris Ativ', tank: 40 },
+      { name: 'Corolla Cross', tank: 36 },
+      { name: 'Hilux Revo', tank: 80 },
       { name: 'Fortuner', tank: 80 },
     ],
   },
@@ -40,7 +40,7 @@ const CAR_DATA: Brand[] = [
     models: [
       { name: 'City', tank: 40 },
       { name: 'Civic', tank: 47 },
-      { name: 'HR-V', tank: 45 },
+      { name: 'HR-V', tank: 40 },
       { name: 'CR-V', tank: 53 },
     ],
   },
@@ -48,9 +48,9 @@ const CAR_DATA: Brand[] = [
     brand: 'Mazda',
     models: [
       { name: 'Mazda 2', tank: 44 },
-      { name: 'Mazda 3', tank: 50 },
+      { name: 'Mazda 3', tank: 51 },
       { name: 'CX-30', tank: 48 },
-      { name: 'CX-5', tank: 58 },
+      { name: 'CX-5', tank: 56 },
     ],
   },
   {
