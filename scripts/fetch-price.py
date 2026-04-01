@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""
+Fetch today's retail fuel price from EPPO (Energy Policy and Planning Office)
+and append it to data/prices.json.
+
+Source: https://www.eppo.go.th/index.php/th/petroleum/price/structure-oil-price
+Each business day, EPPO publishes an Excel file with the retail price structure.
+This script scrapes the listing page, downloads the latest Excel, extracts
+retail prices, and appends to the JSON data file.
+"""
+
+import json
+import re
+import sys
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+from urllib.request import urlopen, Request
+from io import BytesIO
+
+# Thai timezone
+TH_TZ = timezone(timedelta(hours=7))
+
+EPPO_LIST_URL = "https://www.eppo.go.th/index.php/th/petroleum/price/structure-oil-price"
+EPPO_BASE = "https://www.eppo.go.th"
+DATA_FILE = Path(__file__).parent.parent / "data" / "prices.json"
+
+# Map Excel row labels to our JSON keys
+# The Excel has Thai labels for fuel types in the retail price column
+FUEL_MAP = {
+    "เบนซิน 95": "gasoline_95",
+    "แก๊สโซฮอล์ 95": "gasohol_95",
+    "แก๊สโซฮอล์ 91": "gasohol_91",
+    "แก๊สโซฮอล์ อี20": "gasohol_e20",
+    "แก๊สโซฮอล์ อี85": "gasohol_e85",
+    "ดีเซล": "diesel",
+    "ดีเซล บี20": "diesel_b20",
+}
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; thai-fuel-price-bot/1.0)"
+}
+
+
+def fetch_page(url: str) -> str:
+    req = Request(url, headers=HEADERS)
+    with urlopen(req, timeout=30) as resp:
+        return resp.read().decode("utf-8")
+
+
+def fetch_bytes(url: str) -> bytes:
+    req = Request(url, headers=HEADERS)
+    with urlopen(req, timeout=30) as resp:
+        return resp.read()
+
+
+def find_latest_download_url(html: str) -> str | None:
+    """Find the first (latest) download link on the EPPO listing page."""
+    pattern = r'href="(/index\.php/th/component/k2/item/download/[^"]+)"'
+    match = re.search(pattern, html)
+    if match:
+        return EPPO_BASE + match.group(1)
+    # Also try full URLs
+    pattern2 = r'href="(https://www\.eppo\.go\.th/index\.php/th/component/k2/item/download/[^"]+)"'
+    match2 = re.search(pattern2, html)
+    if match2:
+        return match2.group(1)
+    return None
+
+
+def parse_excel(data: bytes) -> dict[str, float]:
+    """Parse the EPPO Excel file and extract retail prices."""
+    try:
+        import openpyxl
+    except ImportError:
+        print("ERROR: openpyxl not installed. Run: pip install openpyxl", file=sys.stderr)
+        sys.exit(1)
+
+    wb = openpyxl.load_workbook(BytesIO(data), read_only=True, data_only=True)
+    ws = wb.active
+
+    prices: dict[str, float] = {}
+
+    # The Excel structure has fuel names in one column and retail price in the last column
+    # We scan all rows looking for known fuel names
+    for row in ws.iter_rows(values_only=True):
+        if not row or not row[0]:
+            continue
+        cell_text = str(row[0]).strip()
+
+        for thai_name, json_key in FUEL_MAP.items():
+            if thai_name in cell_text:
+                # Find the last numeric value in the row (retail price)
+                retail_price = None
+                for cell in reversed(row):
+                    if cell is not None:
+                        try:
+                            val = float(cell)
+                            if val > 0:
+                                retail_price = val
+                                break
+                        except (ValueError, TypeError):
+                            continue
+                if retail_price is not None:
+                    prices[json_key] = round(retail_price, 2)
+                break
+
+    wb.close()
+    return prices
+
+
+def load_data() -> list[dict]:
+    if DATA_FILE.exists():
+        with open(DATA_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+
+def save_data(data: list[dict]) -> None:
+    with open(DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+
+def main():
+    today = datetime.now(TH_TZ).strftime("%Y-%m-%d")
+    print(f"Fetching EPPO fuel price for {today}...")
+
+    # Load existing data
+    data = load_data()
+
+    # Check if today already exists
+    existing_dates = {entry["date"] for entry in data}
+    if today in existing_dates:
+        print(f"Price for {today} already exists, skipping.")
+        return
+
+    # Fetch the listing page
+    print("Fetching EPPO listing page...")
+    html = fetch_page(EPPO_LIST_URL)
+
+    # Find latest download URL
+    download_url = find_latest_download_url(html)
+    if not download_url:
+        print("ERROR: Could not find download link on EPPO page.", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Downloading Excel from: {download_url}")
+    excel_data = fetch_bytes(download_url)
+
+    # Parse Excel
+    prices = parse_excel(excel_data)
+    if not prices:
+        print("ERROR: Could not extract any prices from Excel.", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Extracted prices: {prices}")
+
+    # Append to data
+    entry = {"date": today, "prices": prices}
+    data.append(entry)
+    data.sort(key=lambda e: e["date"])
+
+    save_data(data)
+    print(f"Saved price for {today} to {DATA_FILE}")
+
+
+if __name__ == "__main__":
+    main()
