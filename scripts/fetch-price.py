@@ -24,17 +24,20 @@ EPPO_LIST_URL = "https://www.eppo.go.th/index.php/th/petroleum/price/structure-o
 EPPO_BASE = "https://www.eppo.go.th"
 DATA_FILE = Path(__file__).parent.parent / "data" / "prices.json"
 
-# Map Excel row labels to our JSON keys
-# The Excel has Thai labels for fuel types in the retail price column
+# Map Excel row labels (column B) to our JSON keys
+# Names must match exactly as they appear in the EPPO Excel
 FUEL_MAP = {
     "เบนซิน 95": "gasoline_95",
-    "แก๊สโซฮอล์ 95": "gasohol_95",
+    "แก๊สโซฮอล์ 95 อี10": "gasohol_95",
     "แก๊สโซฮอล์ 91": "gasohol_91",
-    "แก๊สโซฮอล์ อี20": "gasohol_e20",
-    "แก๊สโซฮอล์ อี85": "gasohol_e85",
-    "ดีเซล": "diesel",
-    "ดีเซล บี20": "diesel_b20",
+    "แก๊สโซฮอล์ 95 อี20": "gasohol_e20",
+    "แก๊สโซฮอล์ 95 อี85": "gasohol_e85",
+    "ดีเซลหมุนเร็ว": "diesel",
+    "ดีเซลหมุนเร็ว บี20": "diesel_b20",
 }
+
+# Retail price is in column M (index 12) — "ราคาขายปลีก"
+RETAIL_PRICE_COL = 12
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; thai-fuel-price-bot/1.0)"
@@ -68,40 +71,34 @@ def find_latest_download_url(html: str) -> str | None:
 
 
 def parse_excel(data: bytes) -> dict[str, float]:
-    """Parse the EPPO Excel file and extract retail prices."""
+    """Parse the EPPO Excel file and extract retail prices from column M."""
     try:
         import openpyxl
     except ImportError:
         print("ERROR: openpyxl not installed. Run: pip install openpyxl", file=sys.stderr)
         sys.exit(1)
 
-    wb = openpyxl.load_workbook(BytesIO(data), read_only=True, data_only=True)
+    wb = openpyxl.load_workbook(BytesIO(data), data_only=True)
     ws = wb.active
 
     prices: dict[str, float] = {}
 
-    # The Excel structure has fuel names in one column and retail price in the last column
-    # We scan all rows looking for known fuel names
+    # Fuel names are in column B (index 1), retail price in column M (index 12)
     for row in ws.iter_rows(values_only=True):
-        if not row or not row[0]:
+        if not row or len(row) <= RETAIL_PRICE_COL:
             continue
-        cell_text = str(row[0]).strip()
+        cell_text = str(row[1]).strip() if row[1] else ""
 
         for thai_name, json_key in FUEL_MAP.items():
-            if thai_name in cell_text:
-                # Find the last numeric value in the row (retail price)
-                retail_price = None
-                for cell in reversed(row):
-                    if cell is not None:
-                        try:
-                            val = float(cell)
-                            if val > 0:
-                                retail_price = val
-                                break
-                        except (ValueError, TypeError):
-                            continue
+            if cell_text == thai_name:
+                retail_price = row[RETAIL_PRICE_COL]
                 if retail_price is not None:
-                    prices[json_key] = round(retail_price, 2)
+                    try:
+                        val = float(retail_price)
+                        if val > 0:
+                            prices[json_key] = round(val, 2)
+                    except (ValueError, TypeError):
+                        pass
                 break
 
     wb.close()
