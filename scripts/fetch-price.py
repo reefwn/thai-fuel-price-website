@@ -25,7 +25,7 @@ EPPO_BASE = "https://www.eppo.go.th"
 DATA_FILE = Path(__file__).parent.parent / "data" / "prices.json"
 
 # Map Excel row labels (column B) to our JSON keys
-# Names must match exactly as they appear in the EPPO Excel
+# Support both English and Thai labels (EPPO switched to English ~2026)
 FUEL_MAP = {
     "เบนซิน 95": "gasoline_95",
     "แก๊สโซฮอล์ 95 อี10": "gasohol_95",
@@ -34,6 +34,13 @@ FUEL_MAP = {
     "แก๊สโซฮอล์ 95 อี85": "gasohol_e85",
     "ดีเซลหมุนเร็ว": "diesel",
     "ดีเซลหมุนเร็ว บี20": "diesel_b20",
+    "ULG95": "gasoline_95",
+    "GASOHOL95 E10": "gasohol_95",
+    "GASOHOL91": "gasohol_91",
+    "GASOHOL95 E20": "gasohol_e20",
+    "GASOHOL95 E85": "gasohol_e85",
+    "H-DIESEL": "diesel",
+    "H-DIESEL  B20": "diesel_b20",
 }
 
 # Retail price is in column M (index 12) — "ราคาขายปลีก"
@@ -147,7 +154,14 @@ def main():
     # Parse Excel
     prices = parse_excel(excel_data)
     if not prices:
-        print("ERROR: Could not extract any prices from Excel.", file=sys.stderr)
+        # Dump row labels for debugging
+        import openpyxl as _xl
+        _ws = _xl.load_workbook(BytesIO(excel_data), data_only=True).active
+        labels = [str(r[1]).strip() for r in _ws.iter_rows(values_only=True)
+                  if r and len(r) > RETAIL_PRICE_COL and r[1]]
+        print(f"ERROR: Could not extract any prices from Excel.", file=sys.stderr)
+        print(f"  Column B labels found: {labels}", file=sys.stderr)
+        print(f"  Expected labels: {list(FUEL_MAP.keys())}", file=sys.stderr)
         sys.exit(1)
 
     print(f"Extracted prices: {prices}")
