@@ -1089,5 +1089,17 @@
       "diesel": 50.54,
       "diesel_b20": 45.54
     }
+  },
+  {
+    "date": "2026-04-09",
+    "prices": {
+      "gasoline_95": 0.47,
+      "gasohol_95": 0.44,
+      "gasohol_91": 0.44,
+      "gasohol_e20": 0.45,
+      "gasohol_e85": 0.36,
+      "diesel": 0.74,
+      "diesel_b20": 0.66
+    }
   }
 ]
