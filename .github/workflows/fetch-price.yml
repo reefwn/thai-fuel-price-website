@@ -29,8 +29,6 @@ jobs:
         with:
           python-version: '3.12'
 
-      - run: pip install openpyxl
-
       - run: python scripts/fetch-price.py
 
       - name: Commit and push

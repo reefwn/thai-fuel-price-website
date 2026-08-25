@@ -54,11 +54,11 @@ Prices are stored in `data/prices.json` as an array of `{ date, prices }` entrie
 
 ### Data Source
 
-Retail fuel prices are sourced from [EPPO](https://www.eppo.go.th) (Energy Policy and Planning Office, Ministry of Energy, Thailand). EPPO publishes daily Excel files containing the retail price structure for all fuel types sold in Bangkok metropolitan area.
+Retail fuel prices are sourced from [EPPO](https://www.eppo.go.th) (Energy Policy and Planning Office, Ministry of Energy, Thailand). The daily updater reads EPPO's public retail-price API and records PTT prices for Bangkok metropolitan area.
 
 - **Source URL**: https://www.eppo.go.th/index.php/th/petroleum/price/structure-oil-price
 - **Update frequency**: Daily (business days), auto-fetched at 10 AM GMT+7 via GitHub Actions
-- **Script**: `scripts/fetch-price.py` — downloads the latest EPPO Excel, parses retail prices, and appends to `data/prices.json`
+- **Script**: `scripts/fetch-price.py` — fetches the current EPPO retail prices and appends them to `data/prices.json`
 
 ### Tank Capacity References
 
